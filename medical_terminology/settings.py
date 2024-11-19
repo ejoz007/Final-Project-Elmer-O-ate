@@ -38,8 +38,53 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "assessments",
+    "django_ckeditor_5",
 ]
-
+CKEDITOR_5_CONFIGS = {
+    "default": {
+        "toolbar": [
+            "heading",
+            "|",
+            "bold",
+            "italic",
+            "link",
+            "bulletedList",
+            "numberedList",
+            "blockQuote",
+            "insertTable",
+            "mediaEmbed",
+            "undo",
+            "redo",
+            "fontColor",
+            "fontBackgroundColor",
+            "sourceEditing",  # Enable source editing
+            "htmlEmbed",  # Enable raw HTML embedding
+        ],
+        "htmlEmbed": {"showPreviews": True},  # Optionally show previews of HTML content
+        "fontColor": {
+            "colors": [
+                {"color": "#000000", "label": "Black"},
+                {"color": "#FF0000", "label": "Red"},
+                {"color": "#00FF00", "label": "Green"},
+                {"color": "#0000FF", "label": "Blue"},
+            ],
+            "columns": 5,
+        },
+        "fontBackgroundColor": {
+            "colors": [
+                {"color": "#FFFFFF", "label": "White"},
+                {"color": "#FFFF00", "label": "Yellow"},
+                {"color": "#FFA500", "label": "Orange"},
+                {"color": "#FF00FF", "label": "Pink"},
+            ],
+            "columns": 5,
+        },
+        "mediaEmbed": {"previewsInData": True},
+        "contentsCss": "body { color: black; background-color: white; }",
+        "height": 300,
+        "width": "100%",
+    }
+}
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",

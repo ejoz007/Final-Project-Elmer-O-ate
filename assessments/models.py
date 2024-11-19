@@ -1,4 +1,5 @@
 from django.db import models
+from django_ckeditor_5.fields import CKEditor5Field  # Import CKEditor5Field
 
 
 class Quiz(models.Model):
@@ -18,7 +19,9 @@ class Question(models.Model):
         ("OQ", "Ordering Questions"),
     ]
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
-    question_text = models.TextField()
+    question_text = CKEditor5Field(
+        config_name="default"
+    )  # Changed to CKEditor5Field for rich text
     question_type = models.CharField(max_length=20, choices=QUESTION_TYPES)
     image = models.ImageField(
         upload_to="question_images/", blank=True, null=True

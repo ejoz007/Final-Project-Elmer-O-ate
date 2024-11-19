@@ -10,6 +10,7 @@ urlpatterns = [
     path(
         "assessments/", include("assessments.urls")
     ),  # Including the assessments app URLs
+    path("ckeditor5/", include("django_ckeditor_5.urls")),
 ]
 
 # Media file handling during development
